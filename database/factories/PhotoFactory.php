@@ -17,7 +17,8 @@ class PhotoFactory extends Factory
      $photoable_id=$this->faker->randomElement([$course_id,$user_id]);
      $photoable_type= ( $photoable_id== $user_id)?'App\Models\User':'App\Models\Course';
         return [
-            'filename' => $this->faker->randomElement(['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg','11.jpg','12.jpg']),
+            'filename' => $this->faker->randomElement(['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg','11.jpg','12.jpg'
+        ,'https://images.pexels.com/photos/2889942/pexels-photo-2889942.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500']),
             'photoable_id'=> $photoable_id,
             'photoable_type'=> $photoable_type,
             // 'url_image'  => $this->faker->image('public/storage/posts', 650, 490, null, false)

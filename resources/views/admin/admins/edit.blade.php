@@ -2,8 +2,8 @@
 
 @section('content')
     @include('admin.users.partials.header', [
-        'title' => __('Hello You can create a new User') . ' '. auth()->user()->name,
-        'description' => __('you can create a new user'),
+        'title' => 'Hello Admin:'. ' '. auth()->user()->name.'You can Update information to Admin:'.$admin->name,
+        'description' => __('you can Updaate a new Admin'),
         'class' => 'col-lg-7'
     ])
 

@@ -16,5 +16,8 @@ mix.js('resources/js/app.js', 'public/js')
     .vue()
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/popUpJQ.scss', 'public/css/popUpJQ.css')
-    .sass('resources/sass/main.scss', 'public/css/main.css')
+    .sass('resources/sass/main_style.scss', 'public/css/main_style.css')
+    .sass('resources/sass/user_style.scss', 'public/css/user_style.css')
     .sass('resources/sass/cubic.scss', 'public/css/cubic.css');
+    //.sass('resources/sass/swiperHome.scss', 'public/css/swiperHome.css');
+    // .sass('resources/js/swiperHome.scss', 'public/assets/js/swiperHome.css');

@@ -34715,6 +34715,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/sass/cubic.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/cubic.scss ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -34741,10 +34754,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/main.scss":
-/*!**********************************!*\
-  !*** ./resources/sass/main.scss ***!
-  \**********************************/
+/***/ "./resources/sass/main_style.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/main_style.scss ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -34754,10 +34767,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/cubic.scss":
-/*!***********************************!*\
-  !*** ./resources/sass/cubic.scss ***!
-  \***********************************/
+/***/ "./resources/sass/user_style.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/user_style.scss ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -50003,10 +50016,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
+/******/ 			"css/user_style": 0,
 /******/ 			"css/app": 0,
-/******/ 			"css/cubic": 0,
-/******/ 			"css/main": 0,
-/******/ 			"css/popUpJQ": 0
+/******/ 			"css/main_style": 0,
+/******/ 			"css/popUpJQ": 0,
+/******/ 			"css/cubic": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -50056,11 +50070,12 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/cubic","css/main","css/popUpJQ"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/cubic","css/main","css/popUpJQ"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/cubic","css/main","css/popUpJQ"], () => (__webpack_require__("./resources/sass/popUpJQ.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/cubic","css/main","css/popUpJQ"], () => (__webpack_require__("./resources/sass/main.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/cubic","css/main","css/popUpJQ"], () => (__webpack_require__("./resources/sass/cubic.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/user_style","css/app","css/main_style","css/popUpJQ","css/cubic"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/user_style","css/app","css/main_style","css/popUpJQ","css/cubic"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/user_style","css/app","css/main_style","css/popUpJQ","css/cubic"], () => (__webpack_require__("./resources/sass/popUpJQ.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/user_style","css/app","css/main_style","css/popUpJQ","css/cubic"], () => (__webpack_require__("./resources/sass/main_style.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/user_style","css/app","css/main_style","css/popUpJQ","css/cubic"], () => (__webpack_require__("./resources/sass/user_style.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/user_style","css/app","css/main_style","css/popUpJQ","css/cubic"], () => (__webpack_require__("./resources/sass/cubic.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

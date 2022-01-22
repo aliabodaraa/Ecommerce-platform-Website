@@ -20,11 +20,11 @@
 
                 <div class="col-12"> </div>
 
-            
+
              @include('includes.errors')
              @include('includes.message')
-          
-      
+
+
             {{--  class offset-sm-1   --}}
             {{-- Trueeee <form method="POST" action="{{route('tracks.update',$track->id)}}"  autocomplete="off" style="margin: 0 6px -42px;">    --}}
             <form method="POST" action="{{route('tracks.update',$track)}}"  autocomplete="off" style="margin: 0 6px -42px;">
@@ -33,18 +33,18 @@
                     <div id="InputEmails" class="form-group">
                         <input value="{{ $track->name }}" type="text" name="name" class="form-control" style="padding:0px 0px 0px 20.3%;">
                     </div>
-                        <input type="submit" value="Update Track" name="addtrack" id="add-email" class="btn btn-info" 
+                        <input type="submit" value="Update Track" name="addtrack" id="add-email" class="btn btn-info"
                         style="width:20%;direction: rtl;top:-69px;position: relative;height: 45px;">
                 </form>
-     
+
             </div>
-      
+
     </div>
 </div>
 </div>
 @include('layouts.footers.auth')
-</div> 
+</div>
 @endsection
 
-   
+
 

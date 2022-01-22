@@ -1,12 +1,17 @@
+@php
+        $tracks=App\Models\Track::orderBy('id','DESC')->limit(5)->get();
+        $courses=App\Models\Course::orderBy('id','DESC')->limit(5)->get();
+        $quizzes=App\Models\Quiz::orderBy('id','DESC')->limit(5)->get();
+        $users=App\Models\User::where('admin',0)->orderBy('id','DESC')->get();
+  @endphp
 @extends('layouts.app')
 
 @section('content')
     @include('layouts.headers.cards')
-    
-    <div class="container-fluid mt--7">
-        <div class="row">
-            <div class="col-xl-8 mb-5 mb-xl-0">
-                <div class="card bg-gradient-default shadow">
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col-xl-6 mb-5 mb-xl-0">
+                {{-- <div class="card bg-gradient-default shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
@@ -38,10 +43,59 @@
                             <canvas id="chart-sales" class="chart-canvas"></canvas>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-xl-4">
+                </div> --}}
+                <h2 class="text-light">Last Courses</h2>
+                    @if (count($courses))
                 <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Page Courses</h3>
+                            </div>
+                            <div class="col text-right">
+                                <a href="{{route('courses.index')}}" class="btn btn-sm btn-primary">See all</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-success">
+                                    <tr>
+                                        <td scope="col">Title</th>
+                                        {{-- <td scope="col">Status</th> --}}
+                                        <td scope="col">Link</th>
+                                        <td scope="col">Name Included Track</th>
+                                        <td scope="col">Creation Date</th>
+                                        <td scope="col">Num Of Videos</th>
+                                    </tr>
+                            </thead>
+                            <tbody>
+                                {{--  @php echo $users @endphp  --}}
+
+                                @foreach ($courses as $course)
+                                        <tr>
+                                            <td>{{\Str::limit($course->title,9)}}</td>
+                                            {{-- <td>{{$course->status}}</td> --}}
+                                            <td>{{\Str::limit($course->link,15)}}</td>
+                                            <td>{{$course->track->name}}</td>
+                                            <td>{{$course->created_at->diffForHumans()}}</td>
+                                            <td>{{count($course->videos)}} Video</td>
+
+                                    </tr>
+
+                                        </div>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                     </div>
+                @else
+                    <p class="lead text-center">There is No courses Found </p>
+                @endif
+
+            </div>
+        <div class="col-xl-6">
+                {{-- <div class="card shadow">
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
@@ -56,12 +110,67 @@
                             <canvas id="chart-orders" class="chart-canvas"></canvas>
                         </div>
                     </div>
-                </div>
+                </div> --}}
+
+                <h2 class="text-light">Last Users</h2>
+                         @if (count($users))
+         <div class="card shadow">
+                <div class="card-header border-0">
+                     <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Page users</h3>
+                            </div>
+                            <div class="col text-right">
+                                <a href="{{route('courses.index')}}" class="btn btn-sm btn-primary">See all</a>
+                            </div>
+                       </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                    <tr>
+                                     <td scope="col">ID</th>
+                                        <td scope="col">Name</th>
+                                        {{-- <td scope="col">Email</th> --}}
+                                        <td scope="col">Verified</th>
+                                        {{-- <td scope="col">Creation Date</th> --}}
+                                        <td scope="col">Num Track</th>
+                                        <td scope="col">Num Course</th>
+                                        <td scope="col">Num Quiz</th>
+                                        <td scope="col">Num Video</th>
+                                    </tr>
+                            </thead>
+                            <tbody>
+                                {{--  @php echo $users @endphp  --}}
+
+                                @foreach ($users as $user)
+                                        <tr>
+                                        <td>{{$user->id}}</td>
+                                             <td>{{\Str::limit($user->name)}}</td>
+                                             {{-- <td>{{\Str::limit($user->email,10)}}</td> --}}
+                                             <td class="{{($user->email_verified_at) ? 'text-success':'text-muted'}}">{{($user->email_verified_at) ? 'Verified':'UnVerified'}}</td>
+                                             {{-- <td>{{$user->created_at->diffForHumans()}}</td> --}}
+                                             <td>{{count($user->tracks)}} Track</td>
+                                             <td>{{count($user->courses)}} Course</td>
+                                             <td>{{count($user->quizzes)}} Quiz</td>
+                                             <td>{{count($user->tracks)}} Video</td>
+                                    </tr>
+
+                                        </div>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                @else
+                    <p class="lead text-center">There is No users Found </p>
+                @endif
             </div>
+
         </div>
         <div class="row mt-5">
-            <div class="col-xl-8 mb-5 mb-xl-0">
-                <div class="card shadow">
+            <div class="col-xl-6 mb-5 mb-xl-0">
+                 {{-- <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
@@ -157,10 +266,55 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
-            <div class="col-xl-4">
+                </div>  --}}
+                   <h2 class="text-light">Last Quizzes</h2>
+                    @if (count($courses))
                 <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Page quizzes</h3>
+                            </div>
+                            <div class="col text-right">
+                                <a href="{{route('quizzes.index')}}" class="btn btn-sm btn-primary">See all</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-success">
+                                    <tr>
+                                        <td scope="col">name</th>
+                                        <td scope="col">Name Included Course</th>
+                                        <td scope="col">Creation Date</th>
+                                        <td scope="col">Num Of Questions</th>
+                                        <td scope="col">Num Of Users</th>
+                                    </tr>
+                            </thead>
+                            <tbody>
+                                {{--  @php echo $users @endphp  --}}
+
+                                @foreach ($quizzes as $quiz)
+                                        <tr>
+                                            <td>{{\Str::limit($quiz->name,9)}}</td>
+                                            <td>{{$quiz->course_id}}</td>
+                                            <td>{{$quiz->created_at->diffForHumans()}}</td>
+                                            <td>{{count($quiz->questions)}} Question</td>
+                                            <td>{{count($quiz->users)}} User</td>
+                                    </tr>
+
+                                        </div>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                     </div>
+                @else
+                    <p class="lead text-center">There is No quizs Found </p>
+                @endif
+            </div>
+            <div class="col-xl-6">
+                {{-- <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
                             <div class="col">
@@ -275,7 +429,51 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> --}}
+                    <h2 class="text-light">Last tracks</h2>
+                    @if (count($tracks))
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h3 class="mb-0">Page tracks</h3>
+                            </div>
+                            <div class="col text-right">
+                                <a href="{{route('tracks.index')}}" class="btn btn-sm btn-primary">See all</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-success">
+                                    <tr>
+                                        <td scope="col">Name</th>
+                                        <td scope="col">Creation Date</th>
+                                        <td scope="col">Num Of Courses</th>
+                                        <td scope="col">Num Of Users</th>
+
+                                    </tr>
+                            </thead>
+                            <tbody>
+                                {{--  @php echo $users @endphp  --}}
+
+                                @foreach ($tracks as $track)
+                                        <tr>
+                                            <td>{{\Str::limit($track->name,9)}}</td>
+                                            <td>{{$track->created_at->diffForHumans()}}</td>
+                                            <td>{{count($track->courses)}} Course</td>
+                                            <td>{{count($track->users)}} User</td>
+                                    </tr>
+
+                                        </div>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                     </div>
+                @else
+                    <p class="lead text-center">There is No tracks Found </p>
+                @endif
             </div>
         </div>
 

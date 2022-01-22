@@ -20,6 +20,7 @@ class CreateQuestionsTable extends Migration
             $table->string('answer');
             $table->string('right_answer');
             $table->integer('score');
+            $table->string('type')->nullable();
             $table->integer('quiz_id')->unsigned();
             $table->foreign('quiz_id')->references('id')->on('quizzes')->onDelete('cascade');
         // 1 T Many

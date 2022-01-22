@@ -21,7 +21,7 @@ class QuizController extends Controller
     public function store(Request $request)
     {
         $rules=[
-            'name'=> 'required|min:2|max:150',
+            'name'=> 'required|string|min:2|max:150',
             'course_id'=> 'required|integer',];
         $this->validate($request,$rules);
      if(Quiz::create($request->all())){
@@ -50,7 +50,7 @@ class QuizController extends Controller
             'course_id'=> 'required|integer',];
         $this->validate($request,$rules);
      if($quiz->update($request->all())){
-            return redirect()->route('quizzes.index')->with("mssg","Quiz succussfully Creates.");
+            return redirect()->route('quizzes.index')->with("mssg","Quiz succussfully Updates.");
      }else{
           // LOOK-----> 
           return redirect()->route('quizzes.edit',$quiz)->with("mssg","Try to Create this Quiz Again.");

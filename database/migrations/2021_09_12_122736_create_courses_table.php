@@ -17,6 +17,8 @@ class CreateCoursesTable extends Migration
             $table->increments('id')->unsigned();
             $table->timestamps();
             $table->string('title',400);
+            $table->string('description',400);
+            $table->string('slug',400);
             $table->string('link');
             $table->integer('status');//->default(0);//Course is free or paid
             $table->integer('track_id')->unsigned();

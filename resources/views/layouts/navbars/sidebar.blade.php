@@ -132,27 +132,27 @@
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="/admin/tracks">
-                        <i class="fa fa-road" aria-hidden="true" style="color:f46422"></i> {{ __('Tracks') }}
+                        <i class="fa fa-chart-bar text-blue" aria-hidden="true" style="color:f46422"></i> {{ __('Tracks') }}
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="{{ route('courses.index') }}">
-                       <i class="fa fa-book" aria-hidden="true" style="color:red"></i> {{ __('Courses') }}
+                       <i class="fa fa-chalkboard-teacher" aria-hidden="true" style="color:#5f9"></i> {{ __('Courses') }}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('videos.index') }}">
-                        <i class="fa fa-video" aria-hidden="true"  style="color:#5f9"></i> {{ __('Videos') }}
+                        <i class="fab fa-youtube" aria-hidden="true" style="color:red"></i> {{ __('Videos') }}
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="{{ route('quizzes.index') }}">
-                        <i class="fa fa-pen" aria-hidden="true" style="color:#5701ce"></i> {{ __('Quizzes') }}
+                        <i class="fa fa-edit text-blue" aria-hidden="true" style="color:#5701ce"></i> {{ __('Quizzes') }}
                     </a>
                 </li>
                   <li class="nav-item ">
                     <a class="nav-link" href="{{ route('questions.index') }}">
-                       <i class="fa fa-question-circle" aria-hidden="true" style="color:green"></i> {{ __('Questions') }}
+                       <i class="fa fa-question-circle text-blue" aria-hidden="true" style="color:green"></i> {{ __('Questions') }}
                     </a>
                 </li>
             </ul>

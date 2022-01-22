@@ -8,7 +8,7 @@ class Course extends Model
 {
     use HasFactory;
      protected $fillable=[
-         'title','status','link','track_id'
+         'title','status','link','track_id','description','slug'
         ];
     public function photo(){//one to one polymorphic between photo & (user&course)
         return $this->morphOne('App\Models\Photo','photoable');

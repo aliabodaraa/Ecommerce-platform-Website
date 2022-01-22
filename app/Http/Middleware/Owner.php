@@ -18,10 +18,10 @@ class Owner
     {
        // aliRamadanAbodaraa@yahoo.com
        $user_email=auth()->user()->email;
-       if($user_email=='aliRamadanAboudaraa@yahoo.com'){
+       if($user_email=='aliRamadanAboudaraa@yahoo.comaa'){
         return $next($request);
        }
        return abort(404);
-        
+
     }
 }

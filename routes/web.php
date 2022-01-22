@@ -2,31 +2,23 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 //User Routes
-
-
 Route::get('/', function () {
    // dd(Auth::user());
-
     return view('welcome');
 });
 
 Auth::routes();
-
+Route::get('/courses/{slug}', [App\Http\Controllers\CourseController::class, 'index'])->name('course');
+Route::get('/courses/{slug}/quizzes/{name}', [App\Http\Controllers\QuizController::class, 'index'])->name('quiz');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+
+
+
 
 //Admin Routes
 Route::group(['middleware' => ['auth','Admin']], function () {
@@ -48,7 +40,7 @@ Route::group(['middleware' => ['auth','Admin']], function () {
     Route::put('admin/profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\Admin\ProfileController@update']);
     Route::put('admin/profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\Admin\ProfileController@password']);
 
-    
+
     Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade');
     Route::get('map', function () {return view('pages.maps');})->name('map');
     Route::get('icons', function () {return view('pages.icons');})->name('icons');

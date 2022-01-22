@@ -15,8 +15,9 @@ class QuestionFactory extends Factory
         return [
             'title'=> $this->faker->word,
             'answer'=> $answer,
-            'right_answer'=>  $right_answer,
+            'right_answer'=> $right_answer,
             'score' => $this->faker->randomElement([10,12,13,17,18,23,45]),
+            'type' => $this->faker->randomElement(['checkbox','text']),
             'quiz_id'=>Quiz::all()->random()->id,
         ];
     }

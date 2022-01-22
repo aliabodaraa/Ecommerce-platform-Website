@@ -75,7 +75,7 @@
 
                 <form role="form" method="POST" action="{{ route('courses.store') }}" enctype="multipart/form-data">
                             @csrf
-{{-- Title --}}
+                           {{-- Title --}}
                             <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                                 <div class="input-group input-group-alternative mb-5">
                                     <div class="input-group-prepend">
@@ -89,7 +89,21 @@
                                     </span>
                                 @endif
                             </div>
-{{-- Title --}} 
+                         {{-- description --}}
+                            <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
+                                <div class="input-group input-group-alternative mb-5">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                                    </div>
+                                    <input class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" placeholder="{{ __('description') }}" type="text" name="description" value="{{ old('description') }}" required>
+                                </div>
+                                @if ($errors->has('description'))
+                                    <span class="invalid-feedback" style="display: block;" role="alert">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                           {{-- link --}} 
                              <div class="form-group{{ $errors->has('link') ? ' has-danger' : '' }}">
                                 <div class="input-group input-group-alternative mb-5">
                                     <div class="input-group-prepend">
@@ -155,11 +169,11 @@
                                <div class="text-center">
                                 <button type="submit" class="btn btn-block btn-success mt-5">{{ __('Create Course') }}</button>
                             </div>
-                        </form>
-                    </div>
-                </div>
+                </form>
             </div>
-        </div>
+         </div>
+    </div>
+</div>
 
         @include('layouts.footers.auth')
     </div>

@@ -49,6 +49,7 @@
                                      
                                    </select>
                                   </div>
+                              </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-block btn-success mt-5">{{ __('Create account') }}</button>
                             </div>

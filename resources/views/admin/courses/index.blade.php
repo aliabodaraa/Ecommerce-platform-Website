@@ -11,9 +11,17 @@
         <div class="col">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <div class="row align-items-center">
-                        <div class="col-8">
-                            <h3 class="mb-3"><i class="fa fa-book" aria-hidden="true" style="color:#888;font-size:20px"></i> Courses Home</h3>
+                     <div class="row align-items-center">
+                        <div class="col-4">
+                           <h3 class="mb-0"><i class="fa fa-book" aria-hidden="true" style="color:#888;font-size:20px"></i> Courses Home</h3>
+                        </div>
+                        <div class="col-8 text-right">
+                                {{--  <a href="{{ route('quizzes.create') }}" class="btn btn-sm btn-primary">Add Quiz</a>  --}}
+                                {{-- <!-- Button trigger AddQuiz modal --> --}}
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#AddCourseWithPopUp">
+                                 Add Course
+                                 </button>
+                                    {{--  @include('includes.modalAddCourse') the place after footer bacause it destroyed the design  --}}
                         </div>
                     </div>
                 </div>
@@ -31,108 +39,14 @@
                   </div> --}}
        
              
-                    <a href="{{route('courses.create')}}" class="menu__item menu__item--orange buttonEffect-plus" data-background="red">
+                    {{--  <a href="{{route('courses.create')}}" class="menu__item menu__item--orange buttonEffect-plus" data-background="red">
                        <i class="fa fa-plus" style="font-size: 30px;"></i>
-                    </a>
-               
-                       
-                         
-                          
-                               
-                          
-               
-                    
-                 
-            
-            {{-- <div class="search">
-                <input type="text" class="form-control" placeholder="ابحث عن قسم" name="search" value=" {{request('search')}}" style="
-     padding-left: 25px;
-     border: 1px solid #8b939a;
-     right: -3px;
-     border-radius: 0px;
-     position: absolute;
-     color: #8c8c8c;
-     font-size: 22px;
-     margin-bottom: 171px;
-     margin-top: -50px;
-     top: -11px;
-     height: 59px;
-     white-space: nowrap;">
-
-                <button class="btn1 " type="submit" style="
-                                background-color: #8b939a;
-                                height: 55px;
-                                width: 10%;
-                                z-index: 99999;
-                                left: 5px;
-                                top: -67px;
-                                position: absolute;">
-                    <i class="glyphicon glyphicon-search"></i>
-                </button>
-            </div>
-            <div class="sidenav collapse  navbar-collapse" id="myNavbar">
-
-                <a href="#about"><i class="fa fa-user"></i> User</a>
-                <hr>
-                <a href="#Home"><i class=" fa fa-home"></i> Home</a>
-                <hr>
-                <button class="dropdown-btn btnList1 "> List1
-                    <i class="fa fa-plus-circle"></i>
-                </button>
-                <div class="dropdown-container ">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
-                </div>
-                <hr>
-                <a href="#services"><i class="fa fa-suitcase"></i> Services</a>
-                <hr>
-                <a href="#contact"><i class='fas fa-user-plus'></i> Create New User</a>
-                <hr>
-                <button href="#" class="dropdown-btn btnList2">List 2
-                    <i class="fa fa-plus-circle"></i>
-                </button>
-
-                <div class="dropdown-container ">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-                <hr>
-
-                <a href="#Security"><i class='fas fa-shield-alt'></i> Security Application</a>
-                <hr>
-                <a href="#Themes"><i class='fas fa-palette'></i> Themes</a>
-                <hr>
-
-                <a href="#Edit"><i class="fas fa-user-edit"></i> Edit</a>
-                <hr>
-                <a href="#Settings"><i class="fas fa-users-cog"></i> Settings</a>
-                <hr>
-                <a href="#contact"><i class="fa fa-search"></i> Search</a>
-                <hr>
-                <a href="#Help"><i class="fa fa-info-circle"></i> Help</a>
-                <hr>
-                <a href="#ContactUs"><i class="fas fa-comments"></i> Contact Us</a>
-                <hr>
-                <a href="#logIn"><i class="fa fa-sign-in"></i> log In</a>
-                <hr>
-                <a href="#logOut"><i class="fa fa-sign-out"></i> log Out</a>
-                <!-- <hr>
-                <a href="#"><span class="gt"><i style="font-size:34px;color: red;" class="fa">&#xf152;</i></a> -->
-
-            </div> --}}
-
-        
-    
-                      
+                    </a>  --}}
                 {{--  _____Courses_____  --}} 
     @if (count($courses))  
     <div class="container-fluid" style="padding-right: 20px !important; padding-left: 20px !important;">
         <div class="row">
+        
             @foreach ($courses as $course )
             {{-- @if ($course->photo)  --}}
             <div class="col-xs-3">
@@ -177,6 +91,7 @@
 </div>
 </div>
 @include('layouts.footers.auth')
+@include('includes.modalAddCourse') 
 </div> 
 @endsection
 

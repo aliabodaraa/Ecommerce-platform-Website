@@ -28,10 +28,12 @@ class CourseController extends Controller
         {// dd("asdasd");
              $rules=[
                  'title'=> 'required|min:5|max:150',
+                 'description'=> 'required|min:5|max:150',
                  'status'=> 'required|integer|in:0,1',
                  'link'=> 'required|url',
                  'track_id'=> 'required|integer',];
              $this->validate($request,$rules);
+            $request['slug']=strtolower(str_replace(' ','-',$request['title']));
             // dd($request->all());
           if($course=Course::create($request->all())){
                     //dd($request->image);

@@ -1,8 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/bootstrap.js": "/js/bootstrap.js",
+    "/css/user_style.css": "/css/user_style.css",
     "/css/app.css": "/css/app.css",
-    "/css/cubic.css": "/css/cubic.css",
-    "/css/main.css": "/css/main.css",
-    "/css/popUpJQ.css": "/css/popUpJQ.css"
+    "/css/main_style.css": "/css/main_style.css",
+    "/css/popUpJQ.css": "/css/popUpJQ.css",
+    "/css/cubic.css": "/css/cubic.css"
 }

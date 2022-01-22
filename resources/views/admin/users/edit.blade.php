@@ -2,8 +2,8 @@
 
 @section('content')
     @include('admin.users.partials.header', [
-        'title' => __('Hello You can create a new User') . ' '. auth()->user()->name,
-        'description' => __('you can create a new user'),
+         'title' => 'Hello'. ' '. auth()->user()->name.' You can Update information to [user:'.$user->name .']',
+        'description' => __('you can Update This user'),
         'class' => 'col-lg-7'
     ])
 
@@ -15,11 +15,19 @@
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                                 <a href="#">
-                                    <img src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                                  {{--  <img src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg" class="rounded-circle">  --}}
+                                  @if ($user->photo)  
+                                      <img src="{{asset('/img/'.$user->photo->filename)}}" class="rounded-circle">
+                                    @else
+                                      <img src="https://images.hepsiburada.net/banners/s/0/672-378/bannerImage2121_20210311083848.png" class="rounded-circle">
+                                    @endif
                                 </a>
                             </div>
                         </div>
                     </div>
+                    {{--  <div class="spinner-grow text-info" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>  --}}
                     <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                         <div class="d-flex justify-content-between">
                             <a href="#" class="btn btn-sm btn-info mr-4">{{ __('Connect') }}</a>
@@ -31,23 +39,36 @@
                             <div class="col">
                                 <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                                     <div>
-                                        <span class="heading">22</span>
-                                        <span class="description">{{ __('Friends') }}</span>
+                                        <span class="heading">{{count($user->tracks)}}</span>
+                                        <span class="description">{{ __('Num of tracks have watched with him') }}</span>
                                     </div>
                                     <div>
-                                        <span class="heading">10</span>
-                                        <span class="description">{{ __('Photos') }}</span>
+                                    @php
+                                         $count_course=0;
+                                    @endphp
+                                        <span class="heading">
+                                        @foreach($user->tracks as $track)
+                                          @foreach ($track->courses as $course)
+                                             @php
+                                             ++$count_course;
+                                            @endphp
+                                          @endforeach
+                                        @endforeach
+                                        {{$count_course}}
+                                        </span>
+                                        <span class="description">{{ __('Num of courses have watched with him') }}</span>
                                     </div>
                                     <div>
-                                        <span class="heading">89</span>
-                                        <span class="description">{{ __('Comments') }}</span>
+                                        <span class="heading">{{ $user->score }}</span>
+                                        <span class="description">{{ __('Score') }}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="text-center">
                             <h3>
-                                {{ auth()->user()->name }}<span class="font-weight-light">, 27</span>
+                                {{$user->name }}, <p class="text-primary">{{($user->admin==1)?'Admin':'User'}}<p>
+                                <span class="font-weight-light">, ID:{{$user->id }} ,</span>
                             </h3>
                             <div class="h5 font-weight-300">
                                 <i class="ni location_pin mr-2"></i>{{ __('Bucharest, Romania') }}

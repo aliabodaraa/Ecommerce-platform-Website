@@ -1,3 +1,9 @@
+  @php
+        $track_count=App\Models\Track::all()->count();
+        $course_count=App\Models\Course::all()->count();
+        $quiz_count=App\Models\Quiz::all()->count();
+        $user_count=App\Models\User::where('admin',0)->count();
+  @endphp
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
         <div class="header-body">
@@ -8,8 +14,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
-                                    <span class="h2 font-weight-bold mb-0">350,897</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a href="{{route('tracks.index')}}">Tracks</a></h5>
+                                    <span class="h2 font-weight-bold mb-0">{{$track_count}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -29,12 +35,12 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-                                    <span class="h2 font-weight-bold mb-0">2,356</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a href="{{route('courses.index')}}">Courses</a></h5>
+                                    <span class="h2 font-weight-bold mb-0">{{$course_count}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                        <i class="fas fa-chart-pie"></i>
+                                        <i class="fa fa-chalkboard-teacher"></i>
                                     </div>
                                 </div>
                             </div>
@@ -50,8 +56,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                                    <span class="h2 font-weight-bold mb-0">924</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a href="{{route('users.index')}}">Users</a></h5>
+                                    <span class="h2 font-weight-bold mb-0">{{$user_count}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -71,12 +77,12 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                                    <span class="h2 font-weight-bold mb-0">49,65%</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0"><a href="{{route('quizzes.index')}}">Qizzes</a></h5>
+                                    <span class="h2 font-weight-bold mb-0">{{$quiz_count}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-info text-white rounded-circle shadow">
-                                        <i class="fas fa-percent"></i>
+                                        <i class="fa fa-edit"></i>
                                     </div>
                                 </div>
                             </div>
